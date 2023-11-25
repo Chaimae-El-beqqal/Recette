@@ -26,6 +26,8 @@ public class User {
 
     @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Recette> recettes = new HashSet<>();
-
-   
+   @Column(nullable = false)
+    private String email;
+    @Column(name="accessToken")
+    private String accessToken;
 }

@@ -10,7 +10,8 @@ import com.recette.delice.DTO.UserDTO;
 import com.recette.delice.Service.UserService;
 
 @RestController
-@RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/auth")
 public class UserController {
 
     @Autowired
@@ -18,7 +19,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long userId) {
-        User user = userService.getUserById(userId);
+        UserDTO user = userService.getUserDTOById(userId);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
